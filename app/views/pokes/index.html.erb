@@ -1,0 +1,35 @@
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: black;}
+td  {color: black}
+</style>
+<body background = "http://cdn.wallpapersafari.com/65/11/PJDkyp.jpg">
+
+<h1>List of Pokemon</h1>
+
+<% if flash[:notice] %>
+	<div>
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<table border ="1">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%- @pokes.each do |pkm| %>
+			<tr>
+				<td><%= link_to pkm.id, poke_path(pkm) %></td>
+				<td><%= pkm.name %></td>
+
+			</tr>
+		<%- end %>
+	</tbody>
+</table>
+
+<p> <%= link_to "New", new_poke_path %> </p>

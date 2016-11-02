@@ -1,0 +1,29 @@
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: black;}
+td  {color: black}
+</style>
+<body background = "http://cdn.wallpapersafari.com/65/11/PJDkyp.jpg">
+<h1>Listing Pokemon with Id <%=@poke.id %></h1>
+<table border ="1">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Attack</th>
+			<th>Defense</th>
+			<th></th>
+		</tr>
+	</thead>
+<tbody>
+	<td><%= @poke.id %></td>
+	<td><%= @poke.name %></td>
+	<td><%= @poke.attack %></td>
+	<td><%= @poke.defense %></td>
+	<td><%= link_to "Borrar", @poke, method: :delete, data: {confirm: "Are you really sure?"} %></td>
+</tbody>
+</table>
+
+<p> <%= link_to "Edit", edit_poke_path %> </p>
+<p> <%= link_to "Regresar", pokes_path %> </p>
