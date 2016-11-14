@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hai</title>
+  <title>Pokemon Center</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <table>
+  <table align = "Center">
     <tbody>
       <tr>
         <td> <%= link_to "Home", root_path %> </td>
         <td> <%= link_to "Pokemon", pokes_path %> </td>
+        <td> <%= link_to "Categories", categories_path %>  </td>
       </tr>
     </tbody>
   </table>
-
-<%= yield %>
-
+  
+  <div align= "center">
+    <body background = "http://cdn.wallpapersafari.com/65/11/PJDkyp.jpg">
+    <%= yield %>
+  </div>
 </body>
 </html>

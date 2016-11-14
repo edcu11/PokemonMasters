@@ -1,29 +1,37 @@
-<style>
-body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: black;}
-td  {color: black}
-</style>
-<body background = "http://cdn.wallpapersafari.com/65/11/PJDkyp.jpg">
+
 <h1>Listing Pokemon with Id <%=@poke.id %></h1>
-<table border ="1">
-	<thead>
-		<tr>
-			<th>ID</th>
-			<th>Nombre</th>
-			<th>Attack</th>
-			<th>Defense</th>
-			<th></th>
-		</tr>
-	</thead>
-<tbody>
-	<td><%= @poke.id %></td>
-	<td><%= @poke.name %></td>
-	<td><%= @poke.attack %></td>
-	<td><%= @poke.defense %></td>
-	<td><%= link_to "Borrar", @poke, method: :delete, data: {confirm: "Are you really sure?"} %></td>
-</tbody>
-</table>
+<% if flash[:notice] %>
+  <div style="background: yellow">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<ul>
+  <li>
+    ID:
+    <strong><%= @poke.id %></strong>
+  </li>
+	<li>
+		Nombre:
+		<strong><%= @poke.name %></strong>
+	</li>
+	<li>
+		Attack:
+		<strong><%= @poke.attack %></strong>
+	</li>
+  <li>
+    Defense:
+    <strong><%= @poke.defense %></strong>
+  </li>
+	<li>
+		Average de Reviews:
+		<strong><%= average(@poke.reviews) %></strong>
+	</li>
+</ul>
+
+<%= render partial: "poke_reviews", locals: {reviews: @poke.reviews.order(:created_at)} %>
+
 
 <p> <%= link_to "Edit", edit_poke_path %> </p>
+<p> <%= link_to "New Review", new_poke_review_path(@poke.id) %> </p>
+<p> <%= link_to "Borrar", @poke, method: :delete, data: {confirm: "Are you really sure?"} %> </p>
 <p> <%= link_to "Regresar", pokes_path %> </p>

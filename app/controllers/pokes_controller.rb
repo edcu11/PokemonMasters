@@ -1,6 +1,6 @@
 class PokesController < ApplicationController
   def index
-    @pokes = Poke.order(:id)
+    @pokes = Poke.order(:name)
   end
 
   # Usar el param[:id] para extraer el id del estudiante
@@ -32,7 +32,7 @@ class PokesController < ApplicationController
     @poke = Poke.find(params[:id])
 
     if @poke.update_attributes(poke_params)
-      redirect_to poke_path(@poke)
+      redirect_to poke_path(@poke),  notice: "Se edito con exito compañero"
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class PokesController < ApplicationController
   def destroy
     @poke = Poke.find(params[:id])
     @poke.destroy
-    redirect_to pokes_path
+    redirect_to pokes_path,  notice: "Se borro con exito compañero"
   end
 
   protected
