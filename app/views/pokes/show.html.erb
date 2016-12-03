@@ -28,7 +28,10 @@
 	</li>
 </ul>
 
-<%= render partial: "poke_reviews", locals: {reviews: @poke.reviews.order(:created_at)} %>
+<%= render partial: "poke_reviews", locals: {reviews: @poke.reviews.order("created_at DESC")} %>
+
+
+<%= render partial: "poke_categories", locals: {categories: @poke.categories} %>
 
 
 <p> <%= link_to "Edit", edit_poke_path %> </p>

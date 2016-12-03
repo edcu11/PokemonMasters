@@ -1,4 +1,4 @@
-<h1>Cateogorias</h1>
+<h1>Categorias</h1>
 <% if flash[:notice]  %>
 	<div style= "background: yellow">
 		<%= flash[:notice] %>
@@ -17,4 +17,3 @@
 	</tbody>
 </table>
 		<p> <%= link_to "Agregar Categoria", new_category_path %> </p>
-		<p> <%= link_to "Ranking", categories_path %>		</p>

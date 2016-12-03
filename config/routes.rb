@@ -7,8 +7,12 @@ Pokemon::Application.routes.draw do
    resources :pokes do
      resources :reviews, only: [:new, :create, :destroy]
    end
-   resources :categories, except: [:show]
+   resources :categories, except: [:show], param: :name do
 
+   end
+   resources :catpoks
+
+  get "/:nombre", to: "categories#list", as: "list"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

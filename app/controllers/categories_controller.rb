@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.order(:id)
-
   end
 
   def new
@@ -16,6 +15,10 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def list
+    @category = Category.find_by(nombre: params[:nombre])
   end
 
   def edit
@@ -35,7 +38,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     @category.destroy
-    redirect_to categories_path,   notice: "Se borro con exito compañero"
+    redirect_to categories_path,   notice: "Se borro con exito companero"
   end
 
 

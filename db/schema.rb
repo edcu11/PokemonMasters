@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114162709) do
+ActiveRecord::Schema.define(version: 20161203015701) do
 
   create_table "categories", force: true do |t|
     t.string   "nombre"
@@ -19,10 +19,15 @@ ActiveRecord::Schema.define(version: 20161114162709) do
     t.datetime "updated_at"
   end
 
-  create_table "homes", force: true do |t|
+  create_table "catpoks", force: true do |t|
+    t.integer  "poke_id"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "catpoks", ["category_id"], name: "index_catpoks_on_category_id"
+  add_index "catpoks", ["poke_id"], name: "index_catpoks_on_poke_id"
 
   create_table "pokes", force: true do |t|
     t.text     "name"

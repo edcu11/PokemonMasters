@@ -32,7 +32,7 @@ class PokesController < ApplicationController
     @poke = Poke.find(params[:id])
 
     if @poke.update_attributes(poke_params)
-      redirect_to poke_path(@poke),  notice: "Se edito con exito compañero"
+      redirect_to poke_path(@poke),  notice: "Se edito con exito companero"
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class PokesController < ApplicationController
   def destroy
     @poke = Poke.find(params[:id])
     @poke.destroy
-    redirect_to pokes_path,  notice: "Se borro con exito compañero"
+    redirect_to pokes_path,  notice: "Se borro con exito companero"
   end
 
   protected
