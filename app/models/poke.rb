@@ -13,7 +13,7 @@ class Poke < ActiveRecord::Base
   protected
 
   def default_image
-    if avatar_url = ""
+    if avatar_url == ""
       self.avatar_url='https://s-media-cache-ak0.pinimg.com/564x/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.jpg'
     end
   end
